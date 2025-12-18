@@ -63,16 +63,23 @@ if st.button("Get Recommendations"):
                 if not recs:
                     st.info("No relevant assessments found.")
                 else:
-                    # Create clean DataFrame
+                    # Create DataFrame
                     df = pd.DataFrame(recs)
 
-                    # Rename columns for professional display
-                    df = df.rename(columns={
-                        "assessment_name": "Assessment Name",
-                        "assessment_url": "Assessment URL"
-                    })
+                    # ---------- SAFE COLUMN NORMALIZATION ----------
+                    if "assessment_name" in df.columns:
+                        df.rename(columns={"assessment_name": "Assessment Name"}, inplace=True)
+                    elif "name" in df.columns:
+                        df.rename(columns={"name": "Assessment Name"}, inplace=True)
 
-                    # Keep only required columns
+                    if "assessment_url" in df.columns:
+                        df.rename(columns={"assessment_url": "Assessment URL"}, inplace=True)
+                    elif "url" in df.columns:
+                        df.rename(columns={"url": "Assessment URL"}, inplace=True)
+                    elif "link" in df.columns:
+                        df.rename(columns={"link": "Assessment URL"}, inplace=True)
+
+                    # Final required columns
                     df = df[["Assessment Name", "Assessment URL"]]
 
                     # Make URLs clickable
