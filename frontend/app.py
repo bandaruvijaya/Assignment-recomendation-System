@@ -12,12 +12,12 @@ from api.main import recommend, RecommendRequest
 
 # Page config
 st.set_page_config(
-    page_title="SHL Assessment Recommender",
+    page_title="SmartAssess",
     layout="centered"
 )
 
 # UI
-st.title("SHL Assessment Recommender")
+st.title("SmartAsses")
 st.write(
     "Paste a job description, query, or URL to get recommended SHL assessments."
 )
@@ -53,4 +53,5 @@ if st.button("Get Recommendations"):
 
             except Exception as e:
                 st.error(f"Error occurred: {e}")
+
 
