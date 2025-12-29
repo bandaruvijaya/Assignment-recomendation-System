@@ -11,7 +11,7 @@ import pandas as pd
 # We'll import `recommend` and `RecommendRequest` inside the button click handler.
 # Page config
 st.set_page_config(
-    page_title="SHL Assessment Recommender",
+    page_title="SmartAssess",
     layout="centered"
 )
 
@@ -38,7 +38,7 @@ st.markdown(
 
 # Header
 st.markdown(
-    "<div class='app-header'><div class='logo'>SR</div><div><div class='gloss'>SHL Assessment Recommender</div><div class='small-muted'>Paste a job description, query, or URL to get recommended assessments.</div></div></div>",
+    "<div class='app-header'><div class='logo'>SR</div><div><div class='gloss'>SmartAssess</div><div class='small-muted'>Paste a job description, query, or URL to get recommended assessments.</div></div></div>",
     unsafe_allow_html=True
 )
 
@@ -96,4 +96,5 @@ if st.button("Get Recommendations"):
 
             except Exception as e:
                 st.error(f"Error occurred: {e}")
+
 
